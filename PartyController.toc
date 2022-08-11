@@ -1,0 +1,6 @@
+## Interface: 20504
+## Title: PartyController
+## Author: Nicky Hansen, Benjamin Østner
+## Version: 0.0.1
+
+main.lua
