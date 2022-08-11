@@ -54,6 +54,10 @@ function stringContainsLeader(input)
     return false
 end
 
+function string.starts(String,Start)
+    return string.sub(String,1,string.len(Start))==Start
+ end
+
 function stringContainsInvite(input)
     -- Convert input to lower case.
     lowerInput = string.lower(input)
