@@ -2,7 +2,7 @@ local EventFrame = CreateFrame("Frame")
 
 local selfPlayerName, selfRealm = UnitName("player")
 
-local allowedPlayers = {"Droot", "Leftovermeat", "Wildchad"}
+allowedPlayers = allowedPlayers or {"Droot", "Leftovermeat", "Wildchad"}
 
 local function containsElement(tbl, element)
     for index, value in ipairs(tbl) do
@@ -136,4 +136,17 @@ end
 
 EventFrame:SetScript("OnEvent", handlePartyMessage)
 
+SLASH_PARTYADD1 = '/partyadd'
+SLASH_PARTYLIST1 = '/partylist'
 
+SlashCmdList['PARTYADD'] = function(msg)
+    table.insert(allowedPlayers, msg)
+    DEFAULT_CHAT_FRAME:AddMessage('added ' .. msg .. ' to allowed players')
+end
+
+SlashCmdList['PARTYLIST'] = function(msg)
+    print('current players:')
+    for k, val in pairs(allowedPlayers) do
+        print(' ' .. k .. ', ' .. val)
+    end
+end
