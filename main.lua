@@ -54,9 +54,9 @@ function stringContainsLeader(input)
     return false
 end
 
-function string.starts(String,Start)
-    return string.sub(String,1,string.len(Start))==Start
- end
+function string.starts(String, Start)
+    return string.sub(String, 1, string.len(Start)) == Start
+end
 
 function stringContainsInvite(input)
     -- Convert input to lower case.
@@ -109,7 +109,7 @@ function handlePartyMessage(self, event, text, playerName, languageName,
     -- arg17: event.supressRaidIcons
 
     if stringContainsFollow(text) then
-        --SendChatMessage(playerName .. " wants me to follow them!", "PARTY", nil, nil, nil)
+        -- SendChatMessage(playerName .. " wants me to follow them!", "PARTY", nil, nil, nil)
         FollowUnit(playerName2)
     end
 
@@ -146,32 +146,32 @@ SLASH_PARTYREMOVE1 = '/partyremove'
 SLASH_PARTYREMOVE2 = '/prm'
 
 SlashCmdList['PARTYREMOVE'] = function(msg)
-	local idx = -1;
-	for k, val in pairs(allowedPlayers) do
-        if(val == msg) then
-			idx = k;
-		end
+    local idx = -1;
+    for k, val in pairs(allowedPlayers) do
+        if (val == msg) then
+            idx = k;
+        end
     end
-	
-	if(idx ~= -1) then
-		table.remove(allowedPlayers, idx);
-		DEFAULT_CHAT_FRAME:AddMessage('removed ' .. msg .. ' from allowed players')
-		return;
-	end 
 
-	DEFAULT_CHAT_FRAME:AddMessage(msg .. ' is not allowed.')
+    if (idx ~= -1) then
+        table.remove(allowedPlayers, idx);
+        DEFAULT_CHAT_FRAME:AddMessage('removed ' .. msg .. ' from allowed players')
+        return;
+    end
+
+    DEFAULT_CHAT_FRAME:AddMessage(msg .. ' is not allowed.')
 end
 
 SlashCmdList['PARTYADD'] = function(msg)
-	local existingIdx = -1;
-	for k, val in pairs(allowedPlayers) do
-        if(val == msg) then
-			DEFAULT_CHAT_FRAME:AddMessage(msg .. ' already allowed.')
-			return;
-		end
+    local existingIdx = -1;
+    for k, val in pairs(allowedPlayers) do
+        if (val == msg) then
+            DEFAULT_CHAT_FRAME:AddMessage(msg .. ' already allowed.')
+            return;
+        end
     end
-	
-	table.insert(allowedPlayers, msg)
+
+    table.insert(allowedPlayers, msg)
     DEFAULT_CHAT_FRAME:AddMessage('added ' .. msg .. ' to allowed players')
 end
 
