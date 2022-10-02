@@ -7,3 +7,14 @@ To install this addon simply run the following command in your "World of Warcraf
 To update the addon go into the PartyController folder and run the following comand
 
 `git pull`
+
+
+
+## Commands
+* /pl - See allowed players.
+* /pa <playername> Add allowed player.
+* /prm <playername> Remove allowed player.
+
+* !invite - Whisper leader this and he auto invites you.
+* !invite <playername> - Makes leader invite <playername>
+* !leader - Gives leader to you
